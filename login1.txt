@@ -1,0 +1,25 @@
+Create database login1;
+use login1;
+
+DROP TABLE IF EXISTS `correo`;
+CREATE TABLE IF NOT EXISTS correo (
+  correoId int NOT NULL,
+  profileCod int DEFAULT NULL,
+  correo varchar(50) DEFAULT NULL,
+  contracena varchar(25) DEFAULT NULL,
+  PRIMARY KEY (correoId),
+  CONSTRAINT FkProfile FOREIGN KEY (profileCod) REFERENCES perfil (profileCod)
+) ENGINE=InnoDB ;
+
+
+DROP TABLE IF EXISTS perfil;
+CREATE TABLE IF NOT EXISTS perfil (
+  profileCod int NOT NULL,
+  nombre varchar(25) DEFAULT NULL,
+  apellido varchar(25) DEFAULT NULL,
+  telefono int DEFAULT NULL,
+  PRIMARY KEY (profileCod)
+) ENGINE=InnoDB
+
+
+
